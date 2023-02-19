@@ -9,14 +9,15 @@ app.use(cors({
     origin:"*"
 }))
 app.use(express.json())
+app.get("/", (req, res) => {
+    res.send("home page")
+})
 
 app.use("/users",userRouter)
 app.use(authenticate)
 app.use("/notes",noteRouter)
 
-app.get("/",(req,res)=>{
-    res.send("home page")
-})
+
 
 
 app.listen(4500,async()=>{
